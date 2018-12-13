@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewControllerSecond: UIViewController {
+    @IBOutlet weak var LBL_Show_Message
 
     override func viewDidLoad() {
         super.viewDidLoad()

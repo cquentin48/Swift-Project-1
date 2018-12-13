@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Segue"{
-            let secondViewController = segue.destinationViewController as! secondViewController
-            secondViewController.message = "Passage au second view"
+            let secondViewController = segue.destination as! ViewControllerSecond
+            secondViewController = "Passage au second view"
         }
     }
 }
