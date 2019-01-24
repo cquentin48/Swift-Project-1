@@ -18,12 +18,13 @@ class ColorPickerViewController: UIViewController{
     var delegate: ColorPickerViewDelegate?
     
     @IBAction func orangeColor(_ sender: Any) {
-        delegate?.userDidChooseColor(color: UIColor(named:"BerwerBaseOrange")!)
+        delegate?.userDidChooseColor(color: (ColorAsset.orange.uiColor))
+        //delegate?.userDidChooseColor(color: UIColor(named:"BerwerBaseOrange")!)
     }
     @IBAction func greenColor(_ sender: Any) {
-        delegate?.userDidChooseColor(color: UIColor(named:"BerwerBaseGreen")!)
+        delegate?.userDidChooseColor(color: (ColorAsset.green.uiColor))
     }
     @IBAction func purpleColor(_ sender: Any) {
-        delegate?.userDidChooseColor(color: UIColor(named:"BerwerBasePurple")!)
+        delegate?.userDidChooseColor(color: (ColorAsset.purple.uiColor))
     }
 }
