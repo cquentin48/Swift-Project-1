@@ -10,8 +10,6 @@ import UIKit
 
 class ChooseAColorController: UIViewController {
     
-    @IBOutlet var background: UIView!
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -20,18 +18,23 @@ class ChooseAColorController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "pickColor"{
             let destVC = segue.destination as! ColorPickerViewController
-            destVC.delegate = self
+            destVC.completionHandler = userDidChooseColor
         }
     }
-    
 
 }
 
 //MARK: - ColorPickerViewDelegate
-extension ChooseAColorController: ColorPickerViewDelegate{
+extension ChooseAColorController{
     func userDidChooseColor(color: UIColor) {
         print("Retour à l'écran de début! :)")
-        background.backgroundColor = color
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            UIView.animate(withDuration: 1, animations: {
+                self.view.backgroundColor = color
+            })
+            
+        })
+        
+        
     }
 }
