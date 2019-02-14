@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bT5-Qn-etA">
-                                <rect key="frame" x="69" y="286" width="256" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bT5-Qn-etA">
+                                <rect key="frame" x="8" y="286" width="359" height="95"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Pick a color!" backgroundImage="orangeIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,6 +31,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bT5-Qn-etA" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:7" id="JtU-hf-Ggk"/>
+                            <constraint firstItem="bT5-Qn-etA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="T2C-Qq-MOG"/>
+                            <constraint firstItem="bT5-Qn-etA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TPs-SW-ywj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bT5-Qn-etA" secondAttribute="trailing" constant="8" id="fUW-KM-AJh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -52,52 +58,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1U-D1-Dt8">
-                                <rect key="frame" x="59" y="286" width="256" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Orange" backgroundImage="orangeIcon">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="orangeColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="i4x-4S-Nys"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie4-of-2OT">
-                                <rect key="frame" x="59" y="478" width="256" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Purple" backgroundImage="purpleIcon">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="purpleColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="fLD-96-AWH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSW-4f-ceS">
-                                <rect key="frame" x="59" y="92" width="256" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Green" backgroundImage="greenIcon">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="greenColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="Ziq-oI-shZ"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cwo-ga-LGA">
+                                <rect key="frame" x="8" y="95.5" width="359" height="476"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1U-D1-Dt8">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="95"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Orange" backgroundImage="orangeIcon">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="orangeColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="i4x-4S-Nys"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie4-of-2OT">
+                                        <rect key="frame" x="0.0" y="190.5" width="359" height="95"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Purple" backgroundImage="purpleIcon">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="purpleColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="fLD-96-AWH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSW-4f-ceS">
+                                        <rect key="frame" x="0.0" y="381" width="359" height="95"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Green" backgroundImage="greenIcon">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="greenColor:" destination="a9c-w1-g5j" eventType="touchUpInside" id="Ziq-oI-shZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ie4-of-2OT" firstAttribute="height" secondItem="nSW-4f-ceS" secondAttribute="height" id="0ER-y1-HQu"/>
+                                    <constraint firstItem="ie4-of-2OT" firstAttribute="height" secondItem="Cwo-ga-LGA" secondAttribute="height" multiplier="1:5" id="1iS-Py-CIx"/>
+                                    <constraint firstItem="ie4-of-2OT" firstAttribute="height" secondItem="Q1U-D1-Dt8" secondAttribute="height" id="I9B-PC-9Bo"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cwo-ga-LGA" firstAttribute="centerY" secondItem="12Y-SQ-RzC" secondAttribute="centerY" id="CxZ-Rf-HzS"/>
+                            <constraint firstItem="Cwo-ga-LGA" firstAttribute="height" secondItem="12Y-SQ-RzC" secondAttribute="height" multiplier="5:7" id="D4v-Qk-PV5"/>
+                            <constraint firstItem="wIo-od-dfI" firstAttribute="trailing" secondItem="Cwo-ga-LGA" secondAttribute="trailing" constant="8" id="Ixt-8d-YbT"/>
+                            <constraint firstItem="Cwo-ga-LGA" firstAttribute="leading" secondItem="wIo-od-dfI" secondAttribute="leading" constant="8" id="SIY-Ov-Hzb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wIo-od-dfI"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNV-Wy-mDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="25"/>
+            <point key="canvasLocation" x="740" y="24.7376311844078"/>
         </scene>
     </scenes>
     <resources>
-        <image name="greenIcon" width="96" height="96"/>
-        <image name="orangeIcon" width="96" height="96"/>
-        <image name="purpleIcon" width="96" height="96"/>
+        <image name="greenIcon" width="12.5" height="12.5"/>
+        <image name="orangeIcon" width="12.5" height="12.5"/>
+        <image name="purpleIcon" width="12.5" height="12.5"/>
     </resources>
 </document>
