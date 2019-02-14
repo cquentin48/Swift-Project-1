@@ -27,14 +27,30 @@ class ChooseAColorController: UIViewController {
 //MARK: - ColorPickerViewDelegate
 extension ChooseAColorController{
     func userDidChooseColor(color: UIColor) {
-        print("Retour à l'écran de début! :)")
-        dismiss(animated: true, completion: {
+        let previousColor = self.view.backgroundColor
+        self.dismiss(animated: true, completion: ({
+            UIView.animate(withDuration: 1, animations: {
+                self.view.backgroundColor = color
+            }, completion: { _ in
+                let alert = UIAlertController(title: "Choix d'une couleur",
+                                              message: "Revenir à l'écran principal avec la couleur choisie?",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Oui", style: .default, handler:nil))
+                alert.addAction(UIAlertAction(title: "Non", style: .cancel, handler: { _ in
+                    UIView.animate(withDuration: 1, animations: {
+                        self.view.backgroundColor = previousColor
+                    })
+                }))
+                self.present(alert, animated: true)
+            })
+        }))
+        
+        
+        /*dismiss(animated: true, completion: {
             UIView.animate(withDuration: 1, animations: {
                 self.view.backgroundColor = color
             })
             
-        })
-        
-        
+        })*/
     }
 }
